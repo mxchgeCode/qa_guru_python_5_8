@@ -71,6 +71,10 @@ class TestCart:
         cart.add_product(product, 2000)
         cart.remove_product(product, 3000)
         assert len(cart.products) == 0, 'Удаление продукта с указанием количества больше чем в корзине'
+        cart.add_product(product, 100)
+        cart.remove_product(product, 100)
+        assert len(cart.products) == 0, 'Удаление точно такого же количества товара, которое было в корзине'
+
 
     def test_clear(self,  cart, product):
         cart.add_product(product, 100)
